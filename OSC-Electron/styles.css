@@ -1,0 +1,117 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+  background: #f0f2f5;
+  margin: 0;
+}
+
+h2,
+h3 {
+  color: #333;
+}
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Card-like components */
+.card {
+  background: #ffffff;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Status grid layout */
+.status-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Heartbeat controls */
+.heartbeat-controls {
+  text-align: center;
+}
+
+.heartbeat-controls input[type="number"] {
+  width: 100px;
+  padding: 8px;
+  margin: 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.button {
+  padding: 8px 16px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.button-start {
+  background: #4caf50;
+  color: white;
+}
+
+.button-stop {
+  background: #f44336;
+  color: white;
+}
+
+/* Code display */
+code {
+  background: #f5f5f5;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Message log */
+.message-log {
+  max-height: 300px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.message {
+  font-family: monospace;
+  margin: 5px 0;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  word-break: break-all;
+}
+
+.message.websocket {
+  border-left: 4px solid #4caf50;
+}
+
+.message.udp {
+  border-left: 4px solid #2196f3;
+}
+
+/* Status indicators */
+.status-text {
+  font-weight: bold;
+}
+
+.status-connected {
+  color: #4caf50;
+}
+
+.status-error {
+  color: #f44336;
+}
+
+.status-initializing {
+  color: #ff9800;
+}
