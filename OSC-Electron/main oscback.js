@@ -141,7 +141,6 @@ app.whenReady().then(() => {
   mainWindow.loadFile("index.html");
 
   // Start both servers
-  setupUDPOSC(12000);
   wsOsc
     .open({ host: "0.0.0.0", port: 8080 })
     .then(() => {
@@ -158,6 +157,8 @@ app.whenReady().then(() => {
         error: error.message,
       });
     });
+
+  setupUDPOSC(12000);
 
   console.log("OSC Servers running:");
   console.log("- WebSocket (p5.js): ws://localhost:8080");
