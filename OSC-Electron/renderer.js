@@ -9,8 +9,8 @@ const elements = {
   wsClients: document.getElementById("ws-clients"),
   udpServer: document.getElementById("udp-server"),
   messageContainer: document.getElementById("message-container"),
+  testMessage: document.getElementById("test-message"), // Add this new element
 };
-
 // Heartbeat state
 let heartbeatEnabled = false;
 
@@ -67,6 +67,16 @@ elements.heartbeatDelay.addEventListener("change", () => {
       delay: parseInt(elements.heartbeatDelay.value),
     });
   }
+});
+
+elements.testMessage.addEventListener("click", () => {
+  const testMessage = {
+    type: "test",
+    message: ["/test", `Test message sent at ${new Date().toLocaleTimeString()}`],
+    from: "Test Button",
+  };
+  ipcRenderer.send("send-test-message", testMessage);
+  addMessage("websocket", `Test message sent: ${JSON.stringify(testMessage.message)}`);
 });
 
 // IPC Event Handlers

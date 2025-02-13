@@ -2,6 +2,7 @@ const { app, BrowserWindow } = require("electron");
 const OSC = require("osc-js");
 const osc = require("node-osc");
 const os = require("os");
+const { globalShortcut } = require("electron");
 let mainWindow;
 
 // Get IP address for UDP OSC
@@ -79,6 +80,9 @@ app.whenReady().then(() => {
       contextIsolation: false,
     },
   });
+  globalShortcut.register("CommandOrControl+Shift+I", () => {
+    mainWindow.webContents.toggleDevTools();
+  });
 
   mainWindow.loadFile("index.html");
 
@@ -133,6 +137,10 @@ wsOsc.on("error", (error) => {
       error: error.message,
     });
   }
+});
+
+app.on("will-quit", () => {
+  globalShortcut.unregisterAll();
 });
 
 app.on("window-all-closed", () => {

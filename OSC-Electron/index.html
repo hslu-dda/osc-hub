@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OSC Bridge Server</title>
+    <title>OSC Bridge</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <!-- Main Title -->
-      <h2>OSC Bridge Server</h2>
-
-      <!-- Heartbeat Controls -->
-      <div class="card heartbeat-controls">
-        <h3>Heartbeat Controls</h3>
-        <div>
-          <input type="number" id="heartbeat-delay" value="5000" min="100" step="100" />
-          <label for="heartbeat-delay">milliseconds</label>
-          <button id="heartbeat-toggle" class="button button-start">Start Heartbeat</button>
-        </div>
-      </div>
-
-      <!-- Status Information -->
+      <!-- First Row: Status Information -->
       <div class="status-container">
         <!-- WebSocket Status -->
         <div class="card">
           <h3>WebSocket OSC (p5.js)</h3>
-          <p>
-            Status:
-            <span id="ws-status" class="status-text status-initializing"> Initializing... </span>
-          </p>
+          <p>Status: <span id="ws-status" class="status-text status-initializing">Initializing...</span></p>
           <p>URL: <code>ws://localhost:8080</code></p>
           <p>Connected Clients: <span id="ws-clients">0</span></p>
         </div>
@@ -40,6 +24,23 @@
         </div>
       </div>
 
+      <!-- Second Row: Controls -->
+      <div class="status-container">
+        <!-- Heartbeat Controls -->
+        <div class="card">
+          <h3>Heartbeat Controls</h3>
+          <p>Interval: <input type="number" id="heartbeat-delay" value="5000" min="100" step="100" /> ms</p>
+          <p><button id="heartbeat-toggle" class="button button-start">Start Heartbeat</button></p>
+        </div>
+
+        <!-- Test Message -->
+        <div class="card">
+          <h3>Test Message</h3>
+          <p>Send a test message to all connected clients</p>
+          <p><button id="test-message" class="button button-start">Send Test Message</button></p>
+        </div>
+      </div>
+
       <!-- Message Log -->
       <div class="card">
         <h3>Message Log</h3>
@@ -47,7 +48,6 @@
       </div>
     </div>
 
-    <!-- Scripts -->
     <script src="renderer.js"></script>
   </body>
 </html>

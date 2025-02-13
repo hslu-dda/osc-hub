@@ -4,16 +4,43 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "osc",
+    "websocket",
+    "touchosc",
+    "electron",
+    "bridge"
+  ],
+  "author": "Michael Flueckiger for DataDesin+Art HSLU",
   "license": "ISC",
   "type": "commonjs",
-  "description": "",
+  "description": "Bridge server for OSC communication between TouchOSC and WebSocket clients",
   "dependencies": {
-    "electron": "^34.1.1",
     "node-osc": "^9.1.4",
     "osc-js": "^2.4.1"
+  },
+  "devDependencies": {
+    "electron": "^34.1.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "ch.miflck.osc-electron",
+    "productName": "OSC Hub",
+    "mac": {
+      "icon": "asset/icon.icns",
+      "identity": null,
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
+    }
   }
 }
