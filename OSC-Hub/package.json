@@ -31,7 +31,11 @@
     "productName": "OSC Hub",
     "mac": {
       "icon": "asset/icon.icns",
-      "identity": null,
+      "identity": "Michael Flueckiger (FFUZS5J5U2)",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
       "target": [
         {
           "target": "dmg",
@@ -41,6 +45,7 @@
           ]
         }
       ]
-    }
+    },
+    "afterSign": "scripts/notarize.js"
   }
 }
